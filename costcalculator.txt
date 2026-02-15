@@ -1,0 +1,66 @@
+per_word = 2
+cost = 0
+valid_types = ["legal", "medicine", "poem", "technical", "felsefi", "other"]
+valid_pair = ["en-tr", "tr-en", "de-tr", "tr-de", "tr-rus", "rus-tr"]
+
+def kelime():
+        costt = cost
+        if howmanywords >= 1000:
+            costt = cost * 1.5
+        return(costt)
+
+def language():
+        cost3 = cost
+        if language_pair == "en-tr":
+                cost3 = cost3 * 1
+        elif language_pair == "tr-en":
+                cost3 = cost3 * 1.25
+        elif language_pair == "de-tr":
+                cost3 = cost3 * 1.65
+        elif language_pair == "tr-de":
+                cost3 = cost3 * 1.75
+        elif language_pair == "tr-rus":
+                cost3 = cost3 * 1.8
+        elif language_pair == "rus-tr":
+                cost3 = cost3 * 1.85
+        return(cost3)
+
+
+def hesapla(tur, kac_kelime, languagep):
+    global cost
+    if tur == "legal":
+        cost = (per_word * 1.6) * kac_kelime
+    elif tur == "medicine":
+        cost = (per_word * 1.68) * kac_kelime
+    elif tur == "poem":
+        cost = (per_word * 7.0) * kac_kelime
+    elif tur == "technical":
+        cost = (per_word * 1.59 ) * kac_kelime
+    elif tur == "felsefi":
+        cost = (per_word * 1.73) * kac_kelime
+    elif tur == "other":
+        cost = (per_word * 1.56) * kac_kelime
+    else:
+        print("Please enter a valid text type")
+    cost2 = round(cost, 2)
+    cost2 = kelime()
+    cost2 = language()
+    return(cost2)
+    
+text_type = input("Please enter a text type ").strip().lower()
+if text_type.isdigit():
+    print("Please enter a text type!")
+elif text_type not in valid_types:
+    print("Invalid text type")
+else:
+    howmanywords = input("Please enter word number of text ").strip()
+    if not howmanywords.isdigit():
+        print("Please enter a number")
+    else:
+        howmanywords = int(howmanywords)
+        language_pair = input("Please enter a valid pair ").strip().lower()
+        if language_pair not in valid_pair:
+            print("Please enter a valid pair")
+        else:
+            total = hesapla(text_type, howmanywords, language_pair)
+            print(f"Total cost is: {total:.2f}")

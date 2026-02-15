@@ -1,0 +1,46 @@
+sensitive_words = ("sex", "sexual", "sexualized", "underage", "minors", "massage", "rub", "rubbed", "nude", "remove clothes", "abuse", "abusing")
+unlem = "‼️"
+
+def count(file):
+    words = file.split()
+    bulunanlar = []
+    if words.count("sex") > 0:
+        bulunanlar.append("sex")
+    if words.count("sexual") > 0:
+        bulunanlar.append("sexual")
+    if words.count("sexsualized") > 0:
+        bulunanlar.append("sexsualized")
+    if words.count("underage") > 0:
+        bulunanlar.append("underage")
+    if words.count("minors") > 0:
+        bulunanlar.append("minors")
+    if words.count("massage") > 0:
+        bulunanlar.append("massage")
+    if words.count("rub") > 0:
+        bulunanlar.append("rub")
+    if words.count("rubbed") > 0:
+        bulunanlar.append("rubbed")
+    if words.count("nude") > 0:
+        bulunanlar.append("nude")
+    if words.count("remove clothes") > 0:
+        bulunanlar.append("remove clothes")
+    if words.count("abuse") > 0:
+        bulunanlar.append("abuse")
+    if words.count("abusing") > 0:
+        bulunanlar.append("abusing")
+    toplam_sayi = len(bulunanlar)
+    return toplam_sayi, bulunanlar
+
+
+def filter(file):
+    result, liste = count(file)
+    if result > 0:
+        if result >= 1 and result <= 10:
+            print(f"File contains {result} sensitive word")
+            print(f"Sensitivity Level:{unlem}")
+            print(f"Bulunan kelimeler: {liste}")
+            
+        elif result > 10:
+            print(f"File contains {result} sensitive word")
+            print(f"Sensitivity Level:{unlem * 3}")
+            print("Warning", unlem, unlem, unlem, "Disturbing Content")
