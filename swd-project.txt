@@ -21,4 +21,5 @@ def filter(file):
         elif result > 10:
             print(f"File contains {result} sensitive word")
             print(f"Sensitivity Level:{unlem * 3}")
-            print("Warning", unlem, unlem, unlem, "Disturbing content")
+            print("Warning", unlem, unlem, unlem, "Disturbing Content")
+
