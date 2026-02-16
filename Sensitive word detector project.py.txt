@@ -4,32 +4,10 @@ unlem = "‼️"
 def count(file):
     words = file.split()
     bulunanlar = []
-    if words.count("sex") > 0:
-        bulunanlar.append("sex")
-    if words.count("sexual") > 0:
-        bulunanlar.append("sexual")
-    if words.count("sexsualized") > 0:
-        bulunanlar.append("sexsualized")
-    if words.count("underage") > 0:
-        bulunanlar.append("underage")
-    if words.count("minors") > 0:
-        bulunanlar.append("minors")
-    if words.count("massage") > 0:
-        bulunanlar.append("massage")
-    if words.count("rub") > 0:
-        bulunanlar.append("rub")
-    if words.count("rubbed") > 0:
-        bulunanlar.append("rubbed")
-    if words.count("nude") > 0:
-        bulunanlar.append("nude")
-    if words.count("remove clothes") > 0:
-        bulunanlar.append("remove clothes")
-    if words.count("abuse") > 0:
-        bulunanlar.append("abuse")
-    if words.count("abusing") > 0:
-        bulunanlar.append("abusing")
-    toplam_sayi = len(bulunanlar)
-    return toplam_sayi, bulunanlar
+    for kelime in sensitive_words:
+        if words.count(kelime) > 0:
+            bulunanlar.append(kelime)   
+    return len(bulunanlar), bulunanlar
 
 
 def filter(file):
@@ -43,4 +21,5 @@ def filter(file):
         elif result > 10:
             print(f"File contains {result} sensitive word")
             print(f"Sensitivity Level:{unlem * 3}")
-            print("Warning", unlem, unlem, unlem, "Disturbing Content")
+            print("Warning", unlem, unlem, unlem, "Disturbing content")
+
