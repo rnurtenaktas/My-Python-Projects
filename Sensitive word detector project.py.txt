@@ -7,16 +7,13 @@ def cesitt_2(text):
     for kelime in cesit:
         if kelime in text:
             geciyomu.append(kelime)
-    print(f"Metinde {geciyomu} kelimeleri bulunmaktadır")
-
-
+    print(f"Metinde {geciyomu} kere tekrar ediyor")
 def uyari_1(text):
     toplam = 0
     for word in sensitive_words:
         textt = text.split()
         kac = textt.count(word)
         toplam += kac
-    
         print(f"Cümledeki {word} kelimesi {kac} kere tekrar ediyor")
     cesitt_2(text)
     def filter_3(text):
