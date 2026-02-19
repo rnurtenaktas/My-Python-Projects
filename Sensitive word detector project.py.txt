@@ -1,25 +1,32 @@
-sensitive_words = ("sex", "sexual", "sexualized", "underage", "minors", "massage", "rub", "rubbed", "nude", "remove clothes", "abuse", "abusing")
+sensitive_words = ("sex", "sexual", "sexualized", "underage", "minors", "massage", "rub", "rubbed", "nude", "abuse", "abusing")
 unlem = "‼️"
+cesit = set(sensitive_words)
 
-def count(file):
-    words = file.split()
-    bulunanlar = []
-    for kelime in sensitive_words:
-        if words.count(kelime) > 0:
-            bulunanlar.append(kelime)   
-    return len(bulunanlar), bulunanlar
-
-
-def filter(file):
-    result, liste = count(file)
-    if result > 0:
-        if result >= 1 and result <= 10:
-            print(f"File contains {result} sensitive word")
+def cesitt_2(text):
+    geciyomu = []
+    for kelime in cesit:
+        if kelime in text:
+            geciyomu.append(kelime)
+    print(f"Metinde {geciyomu} kere tekrar ediyor")
+def uyari_1(text):
+    toplam = 0
+    for word in sensitive_words:
+        textt = text.split()
+        kac = textt.count(word)
+        toplam += kac
+        print(f"Cümledeki {word} kelimesi {kac} kere tekrar ediyor")
+    cesitt_2(text)
+    def filter_3(text):
+        nonlocal kac
+        if toplam >= 0 and kac <= 10:
+            print(f"File contains {toplam} sensitive word in total")
             print(f"Sensitivity Level:{unlem}")
-            print(f"Bulunan kelimeler: {liste}")
-            
-        elif result > 10:
-            print(f"File contains {result} sensitive word")
-            print(f"Sensitivity Level:{unlem * 3}")
-            print("Warning", unlem, unlem, unlem, "Disturbing content")
+        elif toplam > 10:
+            print(f"File contains {toplam} sensitive word in total")
+            print(f"Sensitivity Level:{unlem * 3}\nWarning {unlem} {unlem} {unlem} Disturbing Content")
+    filter_3(text)
+    
+    
+    
+
 
