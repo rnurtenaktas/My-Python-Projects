@@ -11,7 +11,8 @@ def cesitt_2(text):
 def uyari_1(text):
     toplam = 0
     for word in sensitive_words:
-        textt = text.split()
+        textt = text.replace(",", "").replace(".", "").replace("-", "").replace("?", "")
+        textt = textt.split()
         kac = textt.count(word)
         toplam += kac
         print(f"Cümledeki {word} kelimesi {kac} kere tekrar ediyor")
@@ -28,5 +29,6 @@ def uyari_1(text):
     
     
     
+
 
 
