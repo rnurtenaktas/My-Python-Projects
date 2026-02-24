@@ -7,7 +7,8 @@ def cesitt_2(text):
     for kelime in cesit:
         if kelime in text:
             geciyomu.append(kelime)
-    print(f"Metinde {geciyomu} kere tekrar ediyor")
+    print(f"Word or words included in the text: {geciyomu}")
+    
 def uyari_1(text):
     toplam = 0
     for word in sensitive_words:
@@ -15,7 +16,7 @@ def uyari_1(text):
         textt = textt.split()
         kac = textt.count(word)
         toplam += kac
-        print(f"Cümledeki {word} kelimesi {kac} kere tekrar ediyor")
+        print(f"{word} word repeats {kac} time")
     cesitt_2(text)
     def filter_3(text):
         nonlocal kac
@@ -26,9 +27,3 @@ def uyari_1(text):
             print(f"File contains {toplam} sensitive word in total")
             print(f"Sensitivity Level:{unlem * 3}\nWarning {unlem} {unlem} {unlem} Disturbing Content")
     filter_3(text)
-    
-    
-    
-
-
-
