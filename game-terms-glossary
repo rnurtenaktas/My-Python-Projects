@@ -1,0 +1,11 @@
+alphabet = "abcdefghjklmnoprstuvyz"
+initial = list(alphabet)
+glossary = []
+while True:
+    game_terms = input("Type the term ").strip().lower()
+    if game_terms == "q":
+        break
+    for letter in initial:
+        if game_terms.startswith(letter):
+            glossary.append(game_terms)
+            print(sorted(glossary))
