@@ -1,0 +1,17 @@
+games = ["vintage story", "minecraft"]
+foreign_words = ["beautyberry", "red currant", "black currant"]
+look = input("Which game are you searching for? ").strip().lower()
+if not look in games:
+    print("Not found")
+else:
+    translated_plants = []
+    while True:
+        plants = input("Enter the typing to be translated (or enter \"0\" to quit) ").strip().lower()
+        if plants == "0":
+            break
+        if plants in foreign_words:
+            foreign_words.remove(plants)
+            translated_plants.append(plants)
+        elif not plants in foreign_words:
+            print("Term is not included in the file")
+    print(translated_plants)      
