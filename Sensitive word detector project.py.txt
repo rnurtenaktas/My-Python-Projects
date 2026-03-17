@@ -10,7 +10,7 @@ def cesitt_2(text):
     print(f"Metinde {geciyomu} kere tekrar ediyor")
 def uyari_1(text):
     toplam = 0
-    for word in sensitive_words:
+    for order, word in enumerate(sensitive_words, start=1):
         textt = text.replace(",", "").replace(".", "").replace("-", "").replace("?", "")
         textt = textt.split()
         kac = textt.count(word)
