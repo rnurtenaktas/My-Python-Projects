@@ -11,7 +11,7 @@ def cesitt_2(text):
     
 def uyari_1(text):
     toplam = 0
-    for word in sensitive_words:
+    for order, word in enumerate(sensitive_words, start=1):
         textt = text.replace(",", "").replace(".", "").replace("-", "").replace("?", "")
         textt = textt.split()
         kac = textt.count(word)
@@ -27,3 +27,4 @@ def uyari_1(text):
             print(f"File contains {toplam} sensitive word in total")
             print(f"Sensitivity Level:{unlem * 3}\nWarning {unlem} {unlem} {unlem} Disturbing Content")
     filter_3(text)
+
