@@ -1,0 +1,14 @@
+alphabet = "abcdefghjklmnoprstuvyz"
+initial = list(alphabet)
+glossary = []
+while True:
+    game_terms = input("Type the term ").strip().lower()
+    if game_terms == "q":
+        break
+    elif not game_terms.isalpha():
+        print("This is not a syntex")
+        continue
+    for letter in initial:
+        if game_terms.startswith(letter):
+            glossary.append(game_terms)
+            print(sorted(glossary))
